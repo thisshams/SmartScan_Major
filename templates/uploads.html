@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <nav><label style="color:#4285F4;font-size: xx-large; font-weight: 600;">Smart</label>
+        <label style="color:white;font-size: xx-large;font-weight: 600;">Scan</label>
+    </nav>
+    <div id="code">
+        Code : <span style="color:#4285F4 ;font-size: 100%;font-weight: 600;">{{code}}</span>
+    </div>
+    <div id="form">
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <span>Upload Files</span><br>
+            <input type="file" name="files" multiple required><br>
+            <input id="submitbtn" type="submit">
+        </form>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img src="{{url_for('static',filename='img/loading.svg')}}">
+                <p>Please wait...</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <style>
+        body {
+            height: 100vh;
+            background-image: url("{{ url_for('static', filename='img/bg.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+
+        nav {
+            background-color: black;
+            padding: 5px;
+            padding-left: 20px;
+            font-family: calibri;
+        }
+
+        span {
+            font-size: xx-large;
+            font-family: calibri;
+            font-weight: 600;
+        }
+
+        #form {
+            height: 45vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            margin: 10px;
+        }
+
+        form {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 25vh;
+            width: max(35vh, 30vw);
+            border: 2px dotted #4285F4;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #submitbtn {
+            padding: 10px;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #submitbtn:hover {
+            cursor: pointer;
+            background-color: #029b23;
+        }
+
+        #code {
+            display: flex;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            height: max(10vh, 10vw);
+            font-size: 250%;
+            font-weight: 600;
+            text-align: center;
+            font-family: calibri;
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            /* display: flex; */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100vw;
+            /* Full width */
+            height: 100vh;
+            /* Full height */
+            overflow: hidden;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: max(35vh, 35vw);
+            border-radius: 10px;
+            text-align: center;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script>
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("submitbtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+
+</html>

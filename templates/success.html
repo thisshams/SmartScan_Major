@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"></script>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='img/bg.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+
+        nav {
+            background-color: black;
+            padding: 5px;
+            padding-left: 20px;
+            font-family: calibri;
+        }
+    </style>
+</head>
+
+<body>
+    <nav><label style="color:#4285F4;font-size: xx-large; font-weight: 600;">Smart</label>
+        <label style="color:white;font-size: xx-large;font-weight: 600;">Scan</label>
+    </nav>
+    <main>
+        <div id="code">
+            <span style="color:#4285F4 ;font-size: 100%;font-weight: 600;">{{code}}</span>
+        </div>
+        <div id="success">
+            <div id="svgContainer"></div>
+            <div id="uploadSuccess">Upload Successful</div>
+        </div>
+    </main>
+</body>
+<style>
+    body {
+        height: 100vh;
+    }
+
+    main {
+        text-align: center;
+    }
+
+    #uploadSuccess {
+        font-family: calibri;
+        font-size: xx-large;
+        font-weight: 600;
+    }
+
+    #code {
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        height: max(10vh, 10vw);
+        font-size: 250%;
+        font-weight: 600;
+        text-align: center;
+        font-family: calibri;
+    }
+
+    #svgContainer {
+        /* width: 100vw; */
+        width: 100vw;
+        height: 30vh;
+    }
+
+    #svgContainer svg {
+        width: 100% !important;
+    }
+
+    #success {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>
+<script>
+    /* Shapes */
+    var svgContainer = document.getElementById('svgContainer');
+    var animItem = bodymovin.loadAnimation({
+        wrapper: svgContainer,
+        animType: 'svg',
+        loop: true,
+        path: 'https://dev.anthonyfessy.com/check.json'
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"></script>
+
+</html>
